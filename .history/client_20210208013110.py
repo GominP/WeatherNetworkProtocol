@@ -9,7 +9,7 @@ while True:
     province = input("ใส่ชื่อจังหวัด: ")
     s.send(province.encode())
     correct = s.recv(1024).decode() 
-    if correct == 'correct':
+    if next == 'correct':
         break
     else:
         print('พิมพ์ชื่อไม่ถูก')

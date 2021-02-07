@@ -22,14 +22,28 @@ def findProvince(input):
     return None
     # print(provinces['provinces'])
 
-def weatherToday():
-    return ("November")
-    
+def eleven():
+    return "November"
  
-def news():
-    return ("December") 
+def twelve():
+    return "December"
  
-
+ 
+def numbers_to_months(argument):
+    switcher = {
+        1: one,
+        2: two,
+        3: three,
+        4: four,
+        5: five,
+        6: six,
+        7: seven,
+        8: eight,
+        9: nine,
+        10: ten,
+        11: eleven,
+        12: twelve
+    }
 
 print('Connected by', addr)
 while True:
@@ -41,10 +55,6 @@ while True:
     conn.send(correct.encode())
     number= conn.recv(1024)
     number = str(number,'utf-8')
-    if number == "1":
-        weatherToday()
-    if number == "2":
-        news()
 
 
     if not province: break

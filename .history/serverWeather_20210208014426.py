@@ -22,14 +22,18 @@ def findProvince(input):
     return None
     # print(provinces['provinces'])
 
-def weatherToday():
-    return ("November")
-    
+def one():
+    print("November")
  
-def news():
-    return ("December") 
+def two():
+    print("December") 
  
-
+ 
+# def numbersNews(number):
+#     switcher = {
+#         "1": one,
+#         "2": two,
+#     }
 
 print('Connected by', addr)
 while True:
@@ -42,9 +46,8 @@ while True:
     number= conn.recv(1024)
     number = str(number,'utf-8')
     if number == "1":
-        weatherToday()
+        one()
     if number == "2":
-        news()
 
 
     if not province: break

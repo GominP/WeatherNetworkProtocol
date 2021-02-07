@@ -22,11 +22,11 @@ def findProvince(input):
     return None
     # print(provinces['provinces'])
 
-def weatherToday():
+def one():
     return ("November")
     
  
-def news():
+def two():
     return ("December") 
  
 
@@ -41,10 +41,11 @@ while True:
     conn.send(correct.encode())
     number= conn.recv(1024)
     number = str(number,'utf-8')
+    numbersNews(number)
     if number == "1":
-        weatherToday()
+        one()
     if number == "2":
-        news()
+        two()
 
 
     if not province: break
