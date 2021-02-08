@@ -20,17 +20,12 @@ while True:
             number = input("กรุณาใส่เลขที่ต้องการ: ")
             s.send(number.encode())
             if number == "3" :
-                break
-            elif number == 'exit':
-                province = 'exit'
-                break
+                brea
+
             data = s.recv(1024).decode()
             print(data)
     else:
         print('พิมพ์ชื่อไม่ถูก')
-
-    if province == 'exit':
-        break
     
 
 s.close()

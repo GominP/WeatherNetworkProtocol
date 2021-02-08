@@ -26,11 +26,11 @@ while True:
                 break
             data = s.recv(1024).decode()
             print(data)
+        if province == 'exit':
+            break
+    
     else:
         print('พิมพ์ชื่อไม่ถูก')
-
-    if province == 'exit':
-        break
     
 
 s.close()

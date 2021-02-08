@@ -28,9 +28,6 @@ while True:
             print(data)
     else:
         print('พิมพ์ชื่อไม่ถูก')
-
-    if province == 'exit':
-        break
     
 
 s.close()

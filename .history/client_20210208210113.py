@@ -22,15 +22,11 @@ while True:
             if number == "3" :
                 break
             elif number == 'exit':
-                province = 'exit'
                 break
-            data = s.recv(1024).decode()
+
             print(data)
     else:
         print('พิมพ์ชื่อไม่ถูก')
-
-    if province == 'exit':
-        break
     
 
 s.close()

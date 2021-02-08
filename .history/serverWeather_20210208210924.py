@@ -32,6 +32,9 @@ def spiltData(json_data):
     # print(temp)
     conn.send(temp.encode())
     
+
+    # conn.send(temp.encode())
+    
 def weatherToday(province):
     url = 'https://data.tmd.go.th/api/WeatherToday/V1/'
     querystring = {'uid': 'u64teelak1113','ukey': 'f97efea71db0ec46c6b9750375720891', 'format': 'json'}

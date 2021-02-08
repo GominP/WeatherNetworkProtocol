@@ -8,7 +8,6 @@ s.connect((host, port))
 while True:
     province = input("ใส่ชื่อจังหวัด: ")
     if province == 'exit':
-        s.send(province.encode())
         break
     s.send(province.encode())
     correct = s.recv(1024).decode()
@@ -21,17 +20,12 @@ while True:
             s.send(number.encode())
             if number == "3" :
                 break
-            elif number == 'exit':
-                province = 'exit'
-                break
+
             data = s.recv(1024).decode()
             print(data)
     else:
         print('พิมพ์ชื่อไม่ถูก')
-
-    if province == 'exit':
-        break
     
 
 s.close()
-# print('Received', repr(data))
+print('Received', repr(data))

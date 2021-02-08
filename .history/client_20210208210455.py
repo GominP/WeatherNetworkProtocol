@@ -5,7 +5,10 @@ host = socket.gethostname()
 port = 60301                 # The same port as used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
+province = ""
 while True:
+    if province == 'exit':
+        break
     province = input("ใส่ชื่อจังหวัด: ")
     if province == 'exit':
         s.send(province.encode())
@@ -28,9 +31,6 @@ while True:
             print(data)
     else:
         print('พิมพ์ชื่อไม่ถูก')
-
-    if province == 'exit':
-        break
     
 
 s.close()

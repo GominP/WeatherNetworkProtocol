@@ -30,7 +30,7 @@ while True:
         print('พิมพ์ชื่อไม่ถูก')
 
     if province == 'exit':
-        break
+            break
     
 
 s.close()

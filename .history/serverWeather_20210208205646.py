@@ -32,6 +32,11 @@ def spiltData(json_data):
     # print(temp)
     conn.send(temp.encode())
     
+
+    # conn.send(temp.encode())
+    
+
+
 def weatherToday(province):
     url = 'https://data.tmd.go.th/api/WeatherToday/V1/'
     querystring = {'uid': 'u64teelak1113','ukey': 'f97efea71db0ec46c6b9750375720891', 'format': 'json'}
@@ -67,7 +72,8 @@ while True:
         # correct = 'correct' if check == 1 else 'wrong'
         if check == 'correct':
             conn.send(check.encode())
-            break 
+            break
+        
         else:
             conn.send(check.encode())
     while True:
@@ -83,5 +89,4 @@ while True:
         elif number == "exit":
             print('client disconnected')
             conn, addr = s.accept()
-            break
 conn.close()
