@@ -5,7 +5,6 @@ host = socket.gethostname()
 port = 60301                 # The same port as used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
-command=['1','2','3','4','5','6','exit']
 while True:
     province = input("ใส่ชื่อจังหวัด: ")
     if province == 'exit':
@@ -20,21 +19,18 @@ while True:
             print('(2) ข่าวเตือนภัยสภาพอากาศ')
             print('(3) กลับไปเปลี่ยนชื่อจังหวัด')
             print('(exit) ออกโปรแกรม')
-            
+
             number = input("กรุณาใส่เลขที่ต้องการ: ")
-            if number not in command:
-                print("ไม่มีชุดคำสั่งนี้")
-                s.send(number.encode())
-                continue
             s.send(number.encode())
             if number == "3" :
                 break
             elif number == 'exit':
                 province = 'exit'
                 break
-           
-            data = s.recv(1024).decode()
-            print(data)
+            elif number < 
+            else:
+                print("ไม่มีชุดคำสั่งนี้")
+
     else:
         print('กรุณาพิมพ์ชื่อจังหวัดให้ถูกต้อง')
     if province == 'exit':

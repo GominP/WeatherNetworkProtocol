@@ -25,6 +25,7 @@ while True:
             if number not in command:
                 print("ไม่มีชุดคำสั่งนี้")
                 s.send(number.encode())
+
                 continue
             s.send(number.encode())
             if number == "3" :

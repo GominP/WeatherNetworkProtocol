@@ -12,16 +12,13 @@ conn, addr = s.accept()
 
 
 def findProvince(input):
-    print("ตรวจสอบจังหวัดว่ามีอยู่ในประเทศไทย")
+    print("ตรวจสอบจังหวัด")
     with open('./data.json', encoding='utf-8') as jsonfile:
         data = json.load(jsonfile)
     for province in data['provinces']:
         if input == province['PROVINCE_NAME']:
-            print("พบจังหวัดที่ต้องการค้นหา")
             return 'correct'
-    print("ไม่พบจังหวัดที่กำลังค้นหา")
     return 'wrong'
-
     # print(provinces['provinces'])
 
 
@@ -37,7 +34,6 @@ def spiltData(json_data):
     conn.send(temp.encode())
     
 def weatherToday(province):
-    print("แสดงข้อมูล สภาพอากาศวันนี้")
     url = 'https://data.tmd.go.th/api/WeatherToday/V1/'
     querystring = {'uid': 'u64teelak1113','ukey': 'f97efea71db0ec46c6b9750375720891', 'format': 'json'}
     response = requests.request('GET', url, params=querystring)
@@ -45,7 +41,9 @@ def weatherToday(province):
     string = ""
     for i in response['Stations']:
         if i['Province'] == province:
+            # print(i)
             for j in response['Stations']:
+            # string = spiltData(i)
                 spiltData(j['Observe'])
                 break
             break
@@ -63,9 +61,8 @@ while True:
         province = conn.recv(1024)
         province = str(province, 'utf-8')
         if province == "exit":
-            print('ออกจากระบบ')
+            print('client disconnected')
             conn, addr = s.accept()
-            continue
         check = findProvince(province)
         # correct = 'correct' if check == 1 else 'wrong'
         if check == 'correct':
@@ -78,20 +75,13 @@ while True:
         number = conn.recv(1024)
         number = str(number, 'utf-8')
         if number == "1":
-            print("ผู้ใช้ต้องการข้อมูล สภาพอากาศวันนี้")
             weatherToday(province)  
         elif number == "2":
-            print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
             news()
         elif number == "3":
-            print("ผู้ใช้ต้องการเปลี่ยนจังหวัดในการค้นหา")
             break
-
         elif number == "exit":
-            print('ออกจากระบบ')
+            print('client disconnected')
             conn, addr = s.accept()
             break
-        else:
-            print("ไม่มีชุดคำสั่งนี้")
-            continue
 conn.close()

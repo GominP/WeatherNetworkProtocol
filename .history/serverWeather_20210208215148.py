@@ -19,8 +19,9 @@ def findProvince(input):
         if input == province['PROVINCE_NAME']:
             print("พบจังหวัดที่ต้องการค้นหา")
             return 'correct'
-    print("ไม่พบจังหวัดที่กำลังค้นหา")
+
     return 'wrong'
+    print("ไม่พบจังหวัดที่กำลังค้นหา")
 
     # print(provinces['provinces'])
 
@@ -38,6 +39,7 @@ def spiltData(json_data):
     
 def weatherToday(province):
     print("แสดงข้อมูล สภาพอากาศวันนี้")
+
     url = 'https://data.tmd.go.th/api/WeatherToday/V1/'
     querystring = {'uid': 'u64teelak1113','ukey': 'f97efea71db0ec46c6b9750375720891', 'format': 'json'}
     response = requests.request('GET', url, params=querystring)
@@ -45,13 +47,13 @@ def weatherToday(province):
     string = ""
     for i in response['Stations']:
         if i['Province'] == province:
+            # print(i)
             for j in response['Stations']:
+            # string = spiltData(i)
                 spiltData(j['Observe'])
                 break
             break
     return string
-
-
 def news():
     return ("December")
 
@@ -92,6 +94,5 @@ while True:
             conn, addr = s.accept()
             break
         else:
-            print("ไม่มีชุดคำสั่งนี้")
-            continue
+            
 conn.close()

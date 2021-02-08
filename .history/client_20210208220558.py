@@ -23,15 +23,14 @@ while True:
             
             number = input("กรุณาใส่เลขที่ต้องการ: ")
             if number not in command:
-                print("ไม่มีชุดคำสั่งนี้")
-                s.send(number.encode())
-                continue
+                print
             s.send(number.encode())
             if number == "3" :
                 break
             elif number == 'exit':
                 province = 'exit'
                 break
+            else:
            
             data = s.recv(1024).decode()
             print(data)
