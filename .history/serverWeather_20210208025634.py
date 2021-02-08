@@ -38,12 +38,10 @@ def weatherToday(province):
     string = ""
     for i in response['Stations']:
         if i['Province'] == province:
-            # print(i)
-            for j in response['Stations']:
+            for j in response['Stations']['Observe']:
             # string = spiltData(i)
-                spiltData(j['Observe'])
+                print(j)
                 break
-            break
     
     return string
 

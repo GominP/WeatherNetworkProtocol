@@ -42,7 +42,6 @@ def weatherToday(province):
             for j in response['Stations']:
             # string = spiltData(i)
                 spiltData(j['Observe'])
-                break
             break
     
     return string

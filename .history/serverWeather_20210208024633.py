@@ -28,6 +28,8 @@ def spiltData(json_data):
     print(temp)
     # conn.send(temp.encode())
     
+    
+
 
 
 def weatherToday(province):
@@ -36,13 +38,10 @@ def weatherToday(province):
     response = requests.request('GET', url, params=querystring)
     response = json.loads(response.text)
     string = ""
-    for i in response['Stations']:
+    for i in response['Stations']['Observe']:
         if i['Province'] == province:
-            # print(i)
-            for j in response['Stations']:
-            # string = spiltData(i)
-                spiltData(j['Observe'])
-                break
+            string = spiltData(i)
+            print(string)
             break
     
     return string

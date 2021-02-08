@@ -25,9 +25,10 @@ def spiltData(json_data):
     temp = ""
     for key in json_data:
          temp += key + " : " + str(json_data[key]) +"\n"
-    print(temp)
-    # conn.send(temp.encode())
+    conn.send(temp.encode())
     
+    
+
 
 
 def weatherToday(province):
@@ -35,17 +36,14 @@ def weatherToday(province):
     querystring = {'uid': 'u64teelak1113','ukey': 'f97efea71db0ec46c6b9750375720891', 'format': 'json'}
     response = requests.request('GET', url, params=querystring)
     response = json.loads(response.text)
-    string = ""
+    a = 
     for i in response['Stations']:
         if i['Province'] == province:
-            # print(i)
-            for j in response['Stations']:
-            # string = spiltData(i)
-                spiltData(j['Observe'])
-                break
+            print(i)
+            spiltData(i)
             break
     
-    return string
+    return ("November")
 
 
 def news():

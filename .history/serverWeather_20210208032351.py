@@ -25,6 +25,8 @@ def spiltData(json_data):
     temp = ""
     for key in json_data:
          temp += key + " : " + str(json_data[key]) +"\n"
+         for key2 in 
+         print(str(json_data[key]))
     print(temp)
     # conn.send(temp.encode())
     

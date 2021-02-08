@@ -24,7 +24,10 @@ def findProvince(input):
 def spiltData(json_data):
     temp = ""
     for key in json_data:
-         temp += key + " : " + str(json_data[key]) +"\n"
+        for i in json_data:
+            temp += key + " : " + str(json_data[key][i]['Value']) +"\n"
+            break
+
     print(temp)
     # conn.send(temp.encode())
     

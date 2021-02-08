@@ -3,6 +3,7 @@ import json
 import requests
 
 
+
 host = ''        # Symbolic name meaning all available interfaces
 port = 60301     # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,36 +17,18 @@ def findProvince(input):
         data = json.load(jsonfile)
     for province in data['provinces']:
         if input == province['PROVINCE_NAME']:
-            return 'correct'
-    return 'wrong'
+            return 1
+    return None
     # print(provinces['provinces'])
-
-
-def spiltData(json_data):
-    temp = ""
-    for key in json_data:
-         temp += key + " : " + str(json_data[key]) +"\n"
-    print(temp)
-    # conn.send(temp.encode())
-    
 
 
 def weatherToday(province):
     url = 'https://data.tmd.go.th/api/Weather3Hours/V1/'
     querystring = {'uid': 'u64teelak1113','ukey': 'f97efea71db0ec46c6b9750375720891', 'format': 'json'}
-    response = requests.request('GET', url, params=querystring)
-    response = json.loads(response.text)
-    string = ""
-    for i in response['Stations']:
-        if i['Province'] == province:
-            # print(i)
-            for j in response['Stations']:
-            # string = spiltData(i)
-                spiltData(j['Observe'])
-                break
-            break
     
-    return string
+    response = requests.request('GET', url, params=querystring)
+    print(response.text)  # print response
+    return ("November")
 
 
 def news():
@@ -58,18 +41,17 @@ while True:
     province = str(province, 'utf-8')
     print(province)
     check = findProvince(province)
-    # correct = 'correct' if check == 1 else 'wrong'
-    if check == 'correct':
-        conn.send(check.encode())
-        print("11111")
-        break
-while True:
+    correct = 'correct' if check == 1 else 'wrong'
+    conn.send(correct.encode())
     number = conn.recv(1024)
     number = str(number, 'utf-8')
     if number == "1":
         weatherToday(province)
     if number == "2":
         news()
+
+    if not province:
+        break
     # conn.sendall(data)
 conn.close()
-print('client disconnected')
+# print('client disconnected')
