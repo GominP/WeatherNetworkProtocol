@@ -28,13 +28,13 @@ while True:
                 s.send(number.encode())
                 continue
             s.send(number.encode())
-            if number == "4" :
+            if number == "3" :
                 break
             elif number == 'exit':
                 province = 'exit'
                 break
            
-            data = s.recv(4096).decode()
+            data = s.recv(1024).decode()
             print(data)
     else:
         print('กรุณาพิมพ์ชื่อจังหวัดให้ถูกต้อง')

@@ -39,7 +39,7 @@ def spiltDataWeatherToday(json_data):
 
 def spiltDataForeCast7Days(json_data):
     temp = ""
-    print('ชื่อจังหวัด : ' + json_data['ProvinceNameTh'])
+    print('ชื่อจังหวัด' + j)
     for eachDay in json_data['SevenDaysForecast']:
         for data in eachDay:
             if data == "TempartureLevel" or data == "WeatherDescription" or data == "Date":
@@ -89,7 +89,7 @@ def foreCast7Days(province):
 print('Connected by', addr)
 while True:
     while True:
-        # print("loop 1")
+        print("loop 1")
         province = conn.recv(1024)
         province = str(province, 'utf-8')
         if province == "exit":
@@ -104,7 +104,7 @@ while True:
         else:
             conn.send(check.encode())
     while True:
-        # print("loop 2")
+        print("loop 2")
         number = conn.recv(1024)
         number = str(number, 'utf-8')
         if number == "1":

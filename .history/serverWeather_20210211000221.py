@@ -104,7 +104,7 @@ while True:
         else:
             conn.send(check.encode())
     while True:
-        # print("loop 2")
+        print("loop 2")
         number = conn.recv(1024)
         number = str(number, 'utf-8')
         if number == "1":

@@ -12,7 +12,7 @@ while True:
         s.send(province.encode())
         break
     s.send(province.encode())
-    correct = s.recv(1024).decode()
+    correct = s.recv(4096).decode()
     
     if correct == 'correct':
         while True:

@@ -34,7 +34,7 @@ while True:
                 province = 'exit'
                 break
            
-            data = s.recv(4096).decode()
+            data = s.recv(2048).decode()
             print(data)
     else:
         print('กรุณาพิมพ์ชื่อจังหวัดให้ถูกต้อง')

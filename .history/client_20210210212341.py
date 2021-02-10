@@ -18,8 +18,8 @@ while True:
         while True:
             print('(1) สภาพอากาศวันนี้')
             print('(2) ข่าวเตือนภัยสภาพอากาศ')
-            print('(3) ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า(ราย 7 วัน)')
-            print('(4) กลับไปเปลี่ยนชื่อจังหวัด')
+            
+            print('(3) กลับไปเปลี่ยนชื่อจังหวัด')
             print('(exit) ออกโปรแกรม')
             
             number = input("กรุณาใส่เลขที่ต้องการ: ")
@@ -28,13 +28,13 @@ while True:
                 s.send(number.encode())
                 continue
             s.send(number.encode())
-            if number == "4" :
+            if number == "3" :
                 break
             elif number == 'exit':
                 province = 'exit'
                 break
            
-            data = s.recv(4096).decode()
+            data = s.recv(1024).decode()
             print(data)
     else:
         print('กรุณาพิมพ์ชื่อจังหวัดให้ถูกต้อง')

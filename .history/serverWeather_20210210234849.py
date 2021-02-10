@@ -39,20 +39,26 @@ def spiltDataWeatherToday(json_data):
 
 def spiltDataForeCast7Days(json_data):
     temp = ""
-    print('ชื่อจังหวัด : ' + json_data['ProvinceNameTh'])
-    for eachDay in json_data['SevenDaysForecast']:
-        for data in eachDay:
-            if data == "TempartureLevel" or data == "WeatherDescription" or data == "Date":
-                temp += data + " : " + str(eachDay[data]) +"\n"
-            elif data == "WeatherDescriptionEn" or data == "TempartureLevelEn" or data == "WaveHeight" or data == "WaveHeightEn":
-                temp += ""
-            else:
-                temp += data + " : " + str(eachDay[data]['Value'])+ " " +str(eachDay[data]['Unit']) +"\n"
-        temp += '-----------------------------------------------------------' + "\n"
+    count = 0
+    for key in json_data:
 
+        elif key == "ProvinceNameTh":
+            temp += key + " : " + str(json_data[key]) +"\n"
+        for eachDay in json_data['SevenDaysForecast']:
+            count += 1
+            if count >= 3:
+                break
+            for data in eachDay:
+                if data == "TempartureLevel" or data == "WeatherDescription" or data == "Date":
+                    temp += data + " : " + str(eachDay[data]) +"\n"
+                elif data == "WeatherDescriptionEn" or data == "TempartureLevelEn" or data == "WaveHeight" or data == "WaveHeightEn":
+                    temp += ""
+                else:
+                    temp += data + " : " + str(eachDay[data]['Value'])+ " " +str(eachDay[data]['Unit']) +"\n"
+            temp += '-----------------------------------------------------------' + "\n"
 
         
-    # print(temp)
+    print(temp)
     conn.send(temp.encode())
     
 def weatherToday(province):
@@ -89,7 +95,7 @@ def foreCast7Days(province):
 print('Connected by', addr)
 while True:
     while True:
-        # print("loop 1")
+        print("loop 1")
         province = conn.recv(1024)
         province = str(province, 'utf-8')
         if province == "exit":
@@ -104,7 +110,7 @@ while True:
         else:
             conn.send(check.encode())
     while True:
-        # print("loop 2")
+        print("loop 2")
         number = conn.recv(1024)
         number = str(number, 'utf-8')
         if number == "1":
