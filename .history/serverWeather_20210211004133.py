@@ -64,6 +64,9 @@ def weatherToday(province):
             break
     return string
 
+def news():
+    print("แสดงข้อมูล ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า 7 วัน ของจังหวัด" + province)
+
 
 
 
@@ -109,13 +112,13 @@ while True:
         if number == "1":
             print("ผู้ใช้ต้องการข้อมูล สภาพอากาศวันนี้")
             weatherToday(province)  
-        # elif number == "2":
-        #     print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
-        #     news()
         elif number == "2":
+            print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
+            news()
+        elif number == "3":
             print("ผู้ใช้ต้องการข้อมูล ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า(ราย 7 วัน)")
             foreCast7Days(province)
-        elif number == "3":
+        elif number == "4":
             print("ผู้ใช้ต้องการเปลี่ยนจังหวัดในการค้นหา")
             break
         elif number == "exit":

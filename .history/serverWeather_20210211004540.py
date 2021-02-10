@@ -64,6 +64,17 @@ def weatherToday(province):
             break
     return string
 
+def news():
+    print("ข่าวเตือนภัยสภาพอากาศ ข่าวสารภูมิอากาศ")
+    url = 'https://data.tmd.go.th/api/WeatherWarningNews/v1/?uid=demo&ukey=demokey'
+    response = requests.request('GET', url, params=querystring)
+    response = json.loads(response.text)
+    a = json.dumps(response, ensure_ascii=False)
+    print(addr)
+    return True
+
+
+
 
 
 
@@ -109,13 +120,13 @@ while True:
         if number == "1":
             print("ผู้ใช้ต้องการข้อมูล สภาพอากาศวันนี้")
             weatherToday(province)  
-        # elif number == "2":
-        #     print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
-        #     news()
         elif number == "2":
+            print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
+            news()
+        elif number == "3":
             print("ผู้ใช้ต้องการข้อมูล ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า(ราย 7 วัน)")
             foreCast7Days(province)
-        elif number == "3":
+        elif number == "4":
             print("ผู้ใช้ต้องการเปลี่ยนจังหวัดในการค้นหา")
             break
         elif number == "exit":

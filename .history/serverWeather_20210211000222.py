@@ -49,6 +49,9 @@ def spiltDataForeCast7Days(json_data):
             else:
                 temp += data + " : " + str(eachDay[data]['Value'])+ " " +str(eachDay[data]['Unit']) +"\n"
         temp += '-----------------------------------------------------------' + "\n"
+
+
+        
     # print(temp)
     conn.send(temp.encode())
     
@@ -63,8 +66,6 @@ def weatherToday(province):
             spiltDataWeatherToday(i['Observe'])
             break
     return string
-
-
 
 
 def foreCast7Days(province):
@@ -109,13 +110,13 @@ while True:
         if number == "1":
             print("ผู้ใช้ต้องการข้อมูล สภาพอากาศวันนี้")
             weatherToday(province)  
-        # elif number == "2":
-        #     print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
-        #     news()
         elif number == "2":
+            print("ผู้ใช้ต้องการข้อมูล ข่าวเตือนภัยสภาพอากาศ")
+            # news()
+        elif number == "3":
             print("ผู้ใช้ต้องการข้อมูล ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า(ราย 7 วัน)")
             foreCast7Days(province)
-        elif number == "3":
+        elif number == "4":
             print("ผู้ใช้ต้องการเปลี่ยนจังหวัดในการค้นหา")
             break
         elif number == "exit":

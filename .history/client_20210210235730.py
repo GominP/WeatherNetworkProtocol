@@ -5,7 +5,7 @@ host = socket.gethostname()
 port = 60301                 # The same port as used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
-command=['1','2','3','4','exit']
+command=['1','2','3','4','5','6','exit']
 while True:
     province = input("ใส่ชื่อจังหวัด: ")
     if province == 'exit':
@@ -17,8 +17,9 @@ while True:
     if correct == 'correct':
         while True:
             print('(1) สภาพอากาศวันนี้')
-            print('(2) ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า(ราย 7 วัน)')
-            print('(3) กลับไปเปลี่ยนชื่อจังหวัด')
+            print('(2) ข่าวเตือนภัยสภาพอากาศ')
+            print('(3) ผลการพยากรณ์อากาศสำหรับประเทศไทยล่วงหน้า(ราย 7 วัน)')
+            print('(4) กลับไปเปลี่ยนชื่อจังหวัด')
             print('(exit) ออกโปรแกรม')
             
             number = input("กรุณาใส่เลขที่ต้องการ: ")
