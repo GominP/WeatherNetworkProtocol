@@ -86,7 +86,8 @@ def foreCast7Days(province):
 
 
 print('Connected by', addr)
-print("Start Server")
+    print("Start Server")
+
 while True:
     while True:
         # print("loop 1")
